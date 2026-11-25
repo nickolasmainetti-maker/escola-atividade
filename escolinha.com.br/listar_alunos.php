@@ -11,7 +11,7 @@ $resultado = listar_alunos_com_foto($conexao);
 <head>
     <meta charset="UTF-8">
     <title>Alunos Cadastrados</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Alunos cadastrados</h1>

@@ -10,6 +10,7 @@ $resultado = listar_professores_com_foto($conexao);
 <head>
     <meta charset="UTF-8">
     <title>Professores Cadastrados</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Professores cadastrados</h1>
@@ -50,6 +51,6 @@ $resultado = listar_professores_com_foto($conexao);
         </tr>
         <?php } ?>
     </table>
-    
+
 </body>
 </html>

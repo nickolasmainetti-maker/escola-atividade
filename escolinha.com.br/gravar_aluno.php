@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Aluno</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Cadastrar Aluno</h1>
