@@ -19,7 +19,7 @@ h2 {
     margin-top: 25px;
 }
 
-/* Links gerais (Menu do index.php, "Voltar ao início", "Cadastrar novo...") */
+
 a {
     display: inline-block;
     background-color: #2c3e50;
@@ -35,7 +35,7 @@ a:hover {
     background-color: #1a252f;
 }
 
-/* Formulários (gravar e editar) */
+
 form {
     background-color: #ffffff;
     padding: 25px;
@@ -78,7 +78,7 @@ button[type="submit"]:hover {
     background-color: #218838;
 }
 
-/* Tabelas (listar_alunos.php e listar_professores.php) */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -104,7 +104,7 @@ tr:hover {
     background-color: #f8f9fa;
 }
 
-/* Botões de Ação dentro da tabela (automaticamente pelo link) */
+
 td a[href*="editar"] {
     background-color: #007bff;
     padding: 5px 10px;
@@ -132,20 +132,16 @@ input[type="file"] {
     margin-top: 5px;
     background-color: #f8f9fa;
     border: 1px dashed #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
     font-size: 13px;
    
 }
 
 
 td img {
-    border-radius: 50%;
+
     border: 2px solid #2c3e50;
-    display: block;
-   
+
+
 }
 
-td {
-    vertical-align: middle;
-}
+
