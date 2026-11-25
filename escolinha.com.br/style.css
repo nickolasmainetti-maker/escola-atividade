@@ -125,3 +125,27 @@ td a[href*="excluir"]:hover {
     background-color: #a71d2a;
 }
 
+
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 13px;
+   
+}
+
+
+td img {
+    border-radius: 50%;
+    border: 2px solid #2c3e50;
+    display: block;
+   
+}
+
+td {
+    vertical-align: middle;
+}

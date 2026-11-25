@@ -111,4 +111,72 @@ function excluir_professor($conexao, $id_professor) {
     mysqli_stmt_bind_param($stmt, "i", $id_professor);
     return mysqli_stmt_execute($stmt);
 }
+
+function enviar_foto($arquivo, $pasta_destino) {
+    
+    if (!isset($arquivo) || $arquivo["error"] !== UPLOAD_ERR_OK) {
+        return false;
+    }
+
+   
+    if ($arquivo["size"] > 2 * 1024 * 1024) {
+        return false;
+    }
+
+    
+    $info = getimagesize($arquivo["tmp_name"]);
+    if ($info === false) {
+        return false;
+    }
+
+    
+    $permitidos = [
+        "image/jpeg" => "jpg",
+        "image/png" => "png",
+        "image/webp" => "webp"
+    ];
+    $tipo = $info["mime"];
+    if (!isset($permitidos[$tipo])) {
+        return false;
+    }
+
+    
+    $nome = bin2hex(random_bytes(16)) . "." . $permitidos[$tipo];
+    $destino = rtrim($pasta_destino, "/\\") . DIRECTORY_SEPARATOR . $nome;
+
+    
+    if (move_uploaded_file($arquivo["tmp_name"], $destino)) {
+        return $nome;
+    }
+
+    return false;
+}
+
+
+function atualizar_foto_aluno($conexao, $cpf_md5, $foto) {
+    $sql = "UPDATE alunos SET foto = ? WHERE cpf = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $foto, $cpf_md5);
+    return mysqli_stmt_execute($stmt);
+}
+
+
+function atualizar_foto_professor($conexao, $cpf_md5, $foto) {
+    $sql = "UPDATE professores SET foto = ? WHERE cpf = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $foto, $cpf_md5);
+    return mysqli_stmt_execute($stmt);
+}
+
+
+function listar_alunos_com_foto($conexao) {
+    $sql = "SELECT id_aluno, nome, cpf, curso, login, foto FROM alunos ORDER BY nome";
+    return mysqli_query($conexao, $sql);
+}
+
+
+function listar_professores_com_foto($conexao) {
+    $sql = "SELECT id_professor, nome, cpf, curso, login, foto FROM professores ORDER BY nome";
+    return mysqli_query($conexao, $sql);
+}
 ?>

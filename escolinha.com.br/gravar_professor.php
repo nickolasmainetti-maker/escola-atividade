@@ -1,30 +1,10 @@
-<?php
-require_once "conexao.php";
-require_once "functions.php";
-/** @var mysqli $conexao */ /**serve para remover o falso erro visual de variável indefinida no VS Code */
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = trim($_POST["nome"]);
-    $cpf = trim($_POST["cpf"]);
-    $curso = trim($_POST["curso"]);
-    $login = trim($_POST["login"]);
-    $senha = $_POST["senha"];
-
-    if (login_existe($conexao, "professores", $login)) {
-        echo "Erro: este login já está cadastrado para outro professor!";
-    } elseif (gravar_professor($conexao, $nome, $cpf, $curso, $login, $senha)) {
-        echo "Professor cadastrado com sucesso!";
-    } else {
-        echo "Erro ao cadastrar professor.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Professor</title>
-    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h1>Cadastro de professor</h1>
